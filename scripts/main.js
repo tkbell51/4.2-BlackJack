@@ -11,21 +11,20 @@
 
 
 function handValue (hand) {
-
+  var hasAce = false;
   var total = 0;
   for (var i = 0; i < hand.length; i++) {
      var card = parseInt(hand[i]);
      if (hand[i] === "K" || hand[i] === "Q" || hand[i] === "J") {
        card = 10;
      } else if (hand[i] === "A") {
-       if (hand[i] === "K" || hand[i] === "Q" || hand[i] === "J") {
-         card = 1;
-       } else {
-         card = 11;
-       }
-     }
+       if (hand[i] === "A" && total < 10 && hand.length < 3){
+        card = 11;
+      } else {
+        card = 1;
+      }
+      }
 
-     
      total+=card;
   }
 
