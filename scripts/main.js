@@ -11,7 +11,6 @@
 
 
 function handValue (hand) {
-  var hasAce = false;
   var total = 0;
   for (var i = 0; i < hand.length; i++) {
      var card = parseInt(hand[i]);
