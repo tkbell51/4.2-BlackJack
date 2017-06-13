@@ -11,44 +11,35 @@
 
 
 function handValue (hand) {
-  var numbers = ['1','2','3','4','5','6','7','8','9','10'];
-  var face = ["K", "Q", "J"];
-  var ace = "A";
+
   var total = 0;
-  var cardValue = 0;
-  var card = '';
-
   for (var i = 0; i < hand.length; i++) {
-     card = hand[i];
-     console.log(card);
-  }
-
-  for (var m = 0; m < numbers.length; m++) {
-    var numberCard = numbers[m];
-    if (card === numberCard) {
-       cardValue = numberCard;
-       
+     var card = parseInt(hand[i]);
+     if (hand[i] === "K" || hand[i] === "Q" || hand[i] === "J") {
+       card = 10;
+     } else if (hand[i] === "A") {
+       if (hand[i] === "K" || hand[i] === "Q" || hand[i] === "J") {
+         card = 1;
+       } else {
+         card = 11;
+       }
      }
+
+     
+     total+=card;
   }
 
-  for (var f = 0; f < face.length; f++) {
-    var faceCard = numbers[f];
-    if (card === faceCard) {
-      cardValue = 10;
-    }
-  }
 
- if (card === ace) {
-    if (total > 21){
-      cardValue = 1;
-    } else {
-      cardValue = 11;
-    }
-  }
 
-  return cardValue+=cardValue;
+
+
+
+
+
+ return total;
+
 }
-console.log(handValue(["K", "Q"]));
+
 /* -----  Hints ------
 
 1..10   ==> Worth face value (1 = 1, 4 = 4, etc)
